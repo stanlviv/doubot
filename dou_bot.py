@@ -77,7 +77,10 @@ keyboard1.row( 'Front End', 'Project Manager')
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
+    keyboard = telebot.types.InlineKeyboardMarkup()
+    keyboard.add(telebot.types.InlineKeyboardButton("Weather_Bot", url='telegram.me/stas_weather_bot'))
     bot.send_message(message.chat.id, f"Привіт, {message.from_user.first_name}", reply_markup=keyboard1)
+    bot.send_message(message.chat.id, "Я шукаю доступні вакансії на dou.ua\nПросто виберіть відповідну категорію",reply_markup=keyboard, parse_mode='Markdown')
 
 @bot.message_handler(content_types=['text'])
 def send_text(message):
