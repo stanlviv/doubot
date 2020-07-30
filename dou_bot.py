@@ -94,7 +94,7 @@ def send_text(message):
             bot.send_message(message.chat.id, "Error")
     elif message.text.lower() == 'technical writer':
         try:
-            jobs = Parser('https://jobs.dou.ua/vacancies/?category=Java&exp=0-1').get_info()
+            jobs = Parser('https://jobs.dou.ua/vacancies/?category=Technical%20Writer&exp=0-1').get_info()
             bot.send_message(message.chat.id, f"*{len(jobs)} Вакансій для початківців:*\n", parse_mode='Markdown')
             for key, value in jobs.items():
                 position = key
